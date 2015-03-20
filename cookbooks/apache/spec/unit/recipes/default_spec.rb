@@ -11,7 +11,7 @@ describe 'apache::default' do
   context 'When all attributes are default, on an unspecified platform' do
 
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new(:platform => "centos", :version => "6.4")
+      runner = ChefSpec::ServerRunner.new
       runner.converge(described_recipe)
     end
 
@@ -23,27 +23,8 @@ describe 'apache::default' do
       expect(chef_run).to install_package "httpd"
     end
     
-    # it 'start the apache service' do
-    #   expect(service "httpd").to be_started
-    # end
-    
-    
-    
-    
-    
-    
-let(:chef_run) do
-  runner = ChefSpec::ServerRunner.new(:platform => "ubuntu", :version => "12.04")
-  runner.converge(described_recipe)
-end
-    
-    
-it 'installs the apache package' do
-  expect(chef_run).to install_package "apache2"
-end
-
-    
-    
-
+    it 'start the apache service' do
+      expect(chef_run).to start_service "httpd"
+    end
   end
 end
