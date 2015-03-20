@@ -1,0 +1,22 @@
+---
+driver:
+  name: ec2
+  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
+  ssh_key: <%= ENV['AWS_KEY_PATH'] %>
+  availability_zone: <%= ENV['AWS_AVAILABILITY_ZONE'] %>
+
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  # - name: ubuntu-12.04
+  - name: centos-6.4
+
+suites:
+  - name: default
+    run_list:
+      - recipe[apache::default]
+    attributes:
