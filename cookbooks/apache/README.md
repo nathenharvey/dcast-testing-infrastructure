@@ -13,7 +13,7 @@ Kit](https://downloads.chef.io/chef-dk/).
 This is a simple Chef cookbook that will install Apache on Ubuntu or CentOS 
 servers.
 
-It includes:
+It includes the following types of tests (run from the `chef-repo/cookbooks/apache` directory):
 
 code syntax and linting
 
